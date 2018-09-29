@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "paths": {
+      "services/*": ["services/*"],
+      "decorators/*": ["decorators/*"],
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

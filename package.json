@@ -1,0 +1,32 @@
+{
+  "name": "veronicasong.github.io",
+  "version": "1.0.0",
+  "description": "50 percent project center",
+  "main": "index.js",
+  "scripts": {
+    "start": "umi dev",
+    "test": "npm run test",
+    "build": "umi build",
+    "server": "node server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/veronicasong/veronicasong.github.io.git"
+  },
+  "keywords": [
+    "profolio"
+  ],
+  "author": "koa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/veronicasong/veronicasong.github.io/issues"
+  },
+  "homepage": "https://github.com/veronicasong/veronicasong.github.io#readme",
+  "dependencies": {
+    "umi": "^2.1.1",
+    "umi-plugin-react": "^1.1.1"
+  },
+  "devDependencies": {
+    "express": "^4.16.3"
+  }
+}
