@@ -3,12 +3,13 @@ const app = express()
 const path = require('path')
 const isProduction = process.env.NODE_ENV === 'production'
 const port = isProduction ? process.env.PORT : 3002
-const publicPath = path.resolve(__dirname, 'dist')
+const publicPath = path.resolve(__dirname, '.')
 
 // We point to our static assets
 app.use(express.static(publicPath))
+
 app.get('*', function(req, res) {
-	res.sendFile(path.join(__dirname, './dist/index.html'))
+	res.sendFile(path.join(__dirname, './index.html'))
 })
 
 // And run the server

@@ -7,6 +7,7 @@ export default {
     'decorators': path.resolve(__dirname, 'src/decorators/')
   },
   publicPath: '/dist/',
+  // base: path.resolve(__dirname, 'dist'),
   plugins: [
     ['umi-plugin-react', {
       antd: false,

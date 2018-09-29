@@ -1,10 +1,10 @@
-import './theme.less'
+// import './theme.less'
 import styles from './index.less';
 
 export default () => {
   return (
     <div className={styles['container']}>
-      hello v
+      123
     </div>
   );
 }
