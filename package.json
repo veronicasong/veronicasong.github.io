@@ -7,6 +7,7 @@
     "start": "umi dev",
     "test": "npm run test",
     "build": "umi build",
+    "deploy": "./deploy.sh",
     "server": "node server"
   },
   "repository": {
