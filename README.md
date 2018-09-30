@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# veronicasong.github.io
-=======
 # veronicasong.github.io
 
 - [x] deploy on github
@@ -12,4 +9,3 @@
 - [ ] how to display picture
 - [ ] index container
 - [ ] oss sts
->>>>>>> bd3c2cb... update TODO
