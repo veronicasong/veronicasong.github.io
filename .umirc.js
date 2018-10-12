@@ -4,14 +4,17 @@ export default {
   history: 'hash',
   alias: {
     'services': path.resolve(__dirname, 'src/services/'),
-    'decorators': path.resolve(__dirname, 'src/decorators/')
+    'decorators': path.resolve(__dirname, 'src/decorators/'),
+    'components': path.resolve(__dirname, 'src/components/')
   },
   publicPath: '/dist/',
   // base: path.resolve(__dirname, 'dist'),
   plugins: [
     ['umi-plugin-react', {
       antd: false,
-      dynamicImport: true
+      dynamicImport: {
+        loadingComponent: './components/DynamicLoadingComponent.js'
+      }
     }]
   ]
 }

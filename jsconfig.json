@@ -4,6 +4,7 @@
     "paths": {
       "services/*": ["services/*"],
       "decorators/*": ["decorators/*"],
+      "components/*": ["components/*"],
     }
   },
   "exclude": [

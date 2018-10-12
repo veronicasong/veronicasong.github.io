@@ -1,0 +1,29 @@
+@import '../pages/theme.less';
+
+.grid {
+  width: 100%;
+  height: 100%;
+  transition: all .3s;
+  position: relative;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: @common-box-shadow;
+    border-color: @common-border-color;
+  }
+
+  .gridImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    will-change: transform;
+    position: relative;
+  }
+
+  .mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+  }
+}
