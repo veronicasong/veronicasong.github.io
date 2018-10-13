@@ -1,12 +1,12 @@
 body {
   width: 100vw;
-  height: 100vh;
+  height: 100vh !important;
   margin: 0;
 
   >div {
     width: 100%;
     height: 100%;
-    padding: 8px;
+    padding: 0px;
   }
 
   div {
@@ -14,5 +14,17 @@ body {
   }
 }
 
-@common-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+@theme-color: #21e0c0;
+@light-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+@dark-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
 @common-border-color: rgba(0, 0, 0, 0.09);
+
+@font-face {
+  font-family: 'AmaticSC';
+  src: url(../resources/font/AmaticSC-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'AmaticSC-Bold';
+  src: url(../resources/font/AmaticSC-Bold.ttf) format('truetype');
+}

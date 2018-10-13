@@ -2,10 +2,10 @@ import styles from "./index.css"
 
 import React, { Component } from "react"
 import { Flipper, Flipped } from 'react-flip-toolkit'
-import detail1Img from "./assets/detail-1.jpg"
-import detail5Img from "./assets/detail-5.jpg"
-import detail6Img from "./assets/detail-6.jpg"
-import detail8Img from "./assets/detail-8.jpg"
+// import detail1Img from "./assets/detail-1.jpg"
+// import detail5Img from "./assets/detail-5.jpg"
+// import detail6Img from "./assets/detail-6.jpg"
+// import detail8Img from "./assets/detail-8.jpg"
 
 const data = [
   { img: detail1Img, title: "The Great Outdoors" },

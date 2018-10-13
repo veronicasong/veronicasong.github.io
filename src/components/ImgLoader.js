@@ -23,11 +23,11 @@ export default class ImgLoader extends React.Component {
 
   render = () => {
     const { loaded } = this.state
-    const { color, url, revealRef, index } = this.props
+    const { image, revealRef, index, expanded } = this.props
     return (
-      <div className={styles.grid} ref={revealRef}>
+      <div className={expanded ? styles.grid : `${styles.grid} ${styles.gridWithHover}`} ref={revealRef}>
         {
-          loaded ? null : <div className={styles.mask} style={{ backgroundColor: color }}></div>
+          loaded ? null : <div className={styles.mask} style={{ backgroundColor: image.color }}></div>
         }
 
         <Flipped
@@ -35,7 +35,7 @@ export default class ImgLoader extends React.Component {
           onStart={this.onStart}
           onComplete={this.onComplete}
         >
-          <img className={styles.gridImg} src={url} onLoad={this.handleOnLoad} />
+          <img className={expanded ? styles.expandedImg : styles.gridImg} src={image.url} onLoad={this.handleOnLoad} />
         </Flipped>
 
       </div>

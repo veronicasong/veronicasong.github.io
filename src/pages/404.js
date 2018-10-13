@@ -1,5 +1,5 @@
 export default () => {
   return (
-    <div>404</div>
+    <div>🚧 under construction...</div>
   )
 }

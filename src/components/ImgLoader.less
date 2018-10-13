@@ -5,12 +5,7 @@
   height: 100%;
   transition: all .3s;
   position: relative;
-
-  &:hover {
-    cursor: pointer;
-    box-shadow: @common-box-shadow;
-    border-color: @common-border-color;
-  }
+  text-align: center;
 
   .gridImg {
     width: 100%;
@@ -20,10 +15,23 @@
     position: relative;
   }
 
+  .expandedImg {
+    height: 100%;
+    will-change: transform;
+  }
+
   .mask {
     width: 100%;
     height: 100%;
     position: absolute;
     z-index: 2;
+  }
+}
+
+.gridWithHover {
+  &:hover {
+    cursor: pointer;
+    box-shadow: @dark-box-shadow;
+    border-color: @common-border-color;
   }
 }

@@ -5,6 +5,7 @@
       "services/*": ["services/*"],
       "decorators/*": ["decorators/*"],
       "components/*": ["components/*"],
+      "utils/*": ["utils/*"],
     }
   },
   "exclude": [
