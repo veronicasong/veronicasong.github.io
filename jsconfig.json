@@ -1,14 +1,16 @@
 {
   "compilerOptions": {
     "experimentalDecorators": true,
+    "baseUrl": ".",
     "paths": {
-      "services/*": ["services/*"],
-      "decorators/*": ["decorators/*"],
-      "components/*": ["components/*"],
-      "utils/*": ["utils/*"],
+      "services/*": ["./src/services/*"],
+      "decorators/*": ["./src/decorators/*"],
+      "components/*": ["./src/components/*"],
+      "utils/*": ["./src/utils/*"]
     }
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "dist"
   ]
 }

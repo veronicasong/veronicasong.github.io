@@ -7,28 +7,28 @@ import menu from 'utils/menu'
 
 export default class HomePage extends React.Component {
   state = {
-    slogon: ['50', 'percent', 'of', 'art', '50', 'percent', 'of', 'tech']
+    slogan: ['50', 'percent', 'of', 'art', '50', 'percent', 'of', 'tech']
   }
 
   _logoWriter = null
 
-  _slogonWriter = null
+  _sloganWriter = null
 
   componentDidMount() {
     this._logoWriter = new Typewriter(this.logo, {
       // cursor: ''
     })
-    this._logoWriter.typeString('50 PERCENT').start().pauseFor(10).callFunction(this.writeSlogon)
+    this._logoWriter.typeString('50 PERCENT').start().pauseFor(10).callFunction(this.writeslogan)
   }
 
-  writeSlogon = () => {
-    this.state.slogon.forEach((text, index) => {
-      ScrollReveal().reveal(this[`slogon${index}`], { delay: index * 200 })
+  writeslogan = () => {
+    this.state.slogan.forEach((text, index) => {
+      ScrollReveal().reveal(this[`slogan${index}`], { delay: index * 200 })
     })
-    // this._slogonWriter = new Typewriter(this.slogon, {
+    // this._sloganWriter = new Typewriter(this.slogan, {
     //   cursor: ''
     // })
-    // this._slogonWriter.typeString('50 percent of art / 50 percent of tech').callFunction(this.writeMenu).start()
+    // this._sloganWriter.typeString('50 percent of art / 50 percent of tech').callFunction(this.writeMenu).start()
   }
 
   writeMenu = () => {
@@ -36,19 +36,19 @@ export default class HomePage extends React.Component {
   }
 
   render() {
-    const { slogon } = this.state
+    const { slogan } = this.state
     return (
         <div className={styles['container']}>
           <div className={styles.wrapper}>
           <div className={styles.logo} ref={ref => this.logo = ref}></div>
-          <div className={styles.slogonContainer}>
+          <div className={styles.sloganContainer}>
           {
-            slogon.map((text, index) => (
-              <div className={styles.slogon} ref={ref => this[`slogon${index}`] = ref} key={index}>{text}</div>
+            slogan.map((text, index) => (
+              <div className={styles.slogan} ref={ref => this[`slogan${index}`] = ref} key={index}>{text}</div>
             ))
           }
           </div>
-          {/* <div className={styles.slogon} ref={ref => this.slogon = ref}></div> */}
+          {/* <div className={styles.slogan} ref={ref => this.slogan = ref}></div> */}
           </div>
           <div className={styles.menu} ref={ref => this.menu = ref}>
             {

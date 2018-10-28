@@ -5,9 +5,9 @@ import CommonService from 'services/common'
 import styles from './index.less'
 import ImgLoader from 'components/ImgLoader'
 
-export default class MealContainer extends React.Component {
+export default class LifestyleContainer extends React.Component {
   state = {
-    mealList: [],
+    lifeStyleList: [],
     focused: null,
     mock: [{
       url: '',
@@ -29,10 +29,10 @@ export default class MealContainer extends React.Component {
   }
 
   async componentDidMount() {
-    const mealList = await CommonService.getListByCategory('meals')
-    this.setState({ mealList, loaded: new Array(mealList.length).fill(0) })
-    mealList.forEach((m, index) => {
-      ScrollReveal().reveal(this[`meal${index}Ref`], { delay: 300, container: this.revealContainer })
+    const lifeStyleList = await CommonService.getListByCategory('lifestyle')
+    this.setState({ lifeStyleList, loaded: new Array(lifeStyleList.length).fill(0) })
+    lifeStyleList.forEach((m, index) => {
+      ScrollReveal().reveal(this[`lifestyle${index}Ref`], { delay: 300, container: this.revealContainer })
     });
   }
 
@@ -56,20 +56,20 @@ export default class MealContainer extends React.Component {
   }
 
   render() {
-    const { mealList, focused } = this.state
+    const { lifeStyleList, focused } = this.state
     return (
       <Flipper flipKey={focused}>
         <div className={styles.container} ref={ref => this.revealContainer = ref}>
           {
-            mealList.map((meal, index) => (
+            lifeStyleList.map((lifestyle, index) => (
               <div key={index} className={styles.imgContainer} onClick={this.toggleExpand.bind(this, index)}>
                 {
                   focused !== index &&
                   <ImgLoader 
                     setLoaded={this.handleSetLoaded.bind(this, index)} 
                     index={index} 
-                    image={meal}
-                    revealRef={ref => this[`meal${index}Ref`] = ref} 
+                    image={lifestyle}
+                    revealRef={ref => this[`lifestyle${index}Ref`] = ref} 
                   />
                 }
               </div>
@@ -82,7 +82,7 @@ export default class MealContainer extends React.Component {
               <ImgLoader 
                 expanded={true}
                 index={focused} 
-                image={mealList[focused]}
+                image={lifeStyleList[focused]}
                 onComplete={this.animateIn}
               />
             </div>

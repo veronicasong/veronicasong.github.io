@@ -16,9 +16,26 @@ body {
 }
 
 @theme-color: #21e0c0;
-@light-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+
+@light-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 @dark-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+
 @common-border-color: rgba(0, 0, 0, 0.09);
+@common-border: 1px solid @common-border-color;
+
+@common-trasition: all 0.3s;
+
+// console
+@common-background: #eeeeee;
+
+.header {
+  margin-bottom: 24px;
+  font-size: 24px;
+  font-weight: 500;
+  padding: 8px;
+  background: white;
+  border-bottom: @common-border;
+}
 
 @font-face {
   font-family: 'AmaticSC';

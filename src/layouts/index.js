@@ -11,9 +11,16 @@ export default class Layout extends React.Component {
     this.props.history.push('/')
   }
 
+
   render() {
-    if (this.props.location.pathname === '/') {
+    if (/^\/(console||console\/.*)?$/.test(this.props.location.pathname)) {
+    // if (~['/', '/console'].indexOf(this.props.location.pathname)) {
       return this.props.children
+      // return React.Children.map(this.props.children, child => {
+      //   const newChildren =  React.cloneElement(child, {"test": "test"})
+      //   return newChildren
+        
+      // })
     }
     return (
       <div className={styles.container}>

@@ -1,0 +1,18 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  >ul {
+    flex-shrink: 0;
+    width: 256px;
+    height: 100%;
+  }
+
+  .content {
+    padding: 24px;
+    width: calc(100% - 256px);
+  }
+}

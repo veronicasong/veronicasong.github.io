@@ -1,0 +1,32 @@
+@import '../pages/theme.less';
+.drawer {
+  display: flex;
+  flex-direction: column;
+  >img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 24px;
+  }
+  .formItem {
+    display: flex;
+    margin-bottom: 24px;
+    flex-direction: column;
+    >span:first-child {
+      margin-bottom: 8px;
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+}
+
+.footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  text-align: right;
+  left: 0px;
+  padding: 10px 16px;
+  border-top: @common-border;
+  background: white;
+}

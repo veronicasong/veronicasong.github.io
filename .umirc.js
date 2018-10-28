@@ -12,10 +12,13 @@ export default {
   // base: path.resolve(__dirname, 'dist'),
   plugins: [
     ['umi-plugin-react', {
-      antd: false,
+      antd: true,
+      dva: {
+        immer: true
+      },
       dynamicImport: {
         loadingComponent: './components/DynamicLoadingComponent.js'
       }
     }]
-  ]
+ ]
 }
