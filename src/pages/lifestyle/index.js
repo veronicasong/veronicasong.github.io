@@ -4,36 +4,29 @@ import ScrollReveal from 'scrollreveal'
 import CommonService from 'services/common'
 import styles from './index.less'
 import ImgLoader from 'components/ImgLoader'
+import { connect } from 'dva'
 
+@connect(({ common, loading }) => ({ loading, common }))
 export default class LifestyleContainer extends React.Component {
   state = {
     lifeStyleList: [],
     focused: null,
-    mock: [{
-      url: '',
-      name: '1',
-      color: '#d4cfc1'
-    }, {
-      url: '',
-      name: '2',
-      color: '#e4cfc1'
-    }, {
-      url: '',
-      name: '3',
-      color: '#a4cfc1'
-    }, {
-      url: '',
-      name: '4',
-      color: '#b4cfc1'
-    }]
+    loaded: []
   }
 
   async componentDidMount() {
-    const lifeStyleList = await CommonService.getListByCategory('lifestyle')
-    this.setState({ lifeStyleList, loaded: new Array(lifeStyleList.length).fill(0) })
-    lifeStyleList.forEach((m, index) => {
-      ScrollReveal().reveal(this[`lifestyle${index}Ref`], { delay: 300, container: this.revealContainer })
-    });
+    this.props.dispatch({
+      type: 'common/getMediaByCategory',
+      payload: {
+        category: 'lifestyle'
+      }
+    }).then(res => {
+      this.setState({ loaded: new Array(res.length).fill(0) })
+      // this.setState({ lifeStyleList: res, loaded: new Array(res.length).fill(0) })
+      res.forEach(m => {
+        ScrollReveal().reveal(this[`ref_${m._id}`], { delay: 300, container: this.revealContainer })
+      });
+    })
   }
 
   toggleExpand = focused => {
@@ -44,7 +37,6 @@ export default class LifestyleContainer extends React.Component {
   }
 
   animateIn = () => {
-    console.log('this.blurRef : ', this.blurRef );
     this.blurRef.style.filter = 'blur(10px)'
     this.blurRef.style.backgroundColor = 'rgba(233, 233, 233, .8)'
   }
@@ -56,12 +48,17 @@ export default class LifestyleContainer extends React.Component {
   }
 
   render() {
-    const { lifeStyleList, focused } = this.state
+    // const { lifeStyleList, focused } = this.state
+    const { focused } = this.state
+    const { common: { lifestyle } } = this.props
+    if (!lifestyle) {
+      return null
+    }
     return (
       <Flipper flipKey={focused}>
         <div className={styles.container} ref={ref => this.revealContainer = ref}>
           {
-            lifeStyleList.map((lifestyle, index) => (
+            lifestyle.map((lifestyle, index) => (
               <div key={index} className={styles.imgContainer} onClick={this.toggleExpand.bind(this, index)}>
                 {
                   focused !== index &&
@@ -69,7 +66,7 @@ export default class LifestyleContainer extends React.Component {
                     setLoaded={this.handleSetLoaded.bind(this, index)} 
                     index={index} 
                     image={lifestyle}
-                    revealRef={ref => this[`lifestyle${index}Ref`] = ref} 
+                    revealRef={ref => this[`ref_${lifestyle._id}`] = ref} 
                   />
                 }
               </div>
@@ -82,7 +79,7 @@ export default class LifestyleContainer extends React.Component {
               <ImgLoader 
                 expanded={true}
                 index={focused} 
-                image={lifeStyleList[focused]}
+                image={lifestyle[focused]}
                 onComplete={this.animateIn}
               />
             </div>

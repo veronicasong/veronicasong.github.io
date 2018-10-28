@@ -28,6 +28,7 @@ export default {
             data
           }
         })
+        return data
       } else if (payload.console) {
         message.error(msg)
       }
