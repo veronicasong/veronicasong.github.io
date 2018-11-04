@@ -38,7 +38,8 @@ export default class Gallery extends React.Component {
     this.props.switchCallback()
   }
 
-  handleClap = () => {
+  handleClap = e => {
+    e.stopPropagation()
     this.setState({ isAddingClap: true })
     this.props.dispatch({
       type: 'common/clap',
@@ -53,7 +54,8 @@ export default class Gallery extends React.Component {
     }, 200)
   }
 
-  handleFavs = () => {
+  handleFavs = e => {
+    e.stopPropagation()
     this.setState({ isAddingFav: true })
     this.props.dispatch({
       type: 'common/favs',
@@ -83,11 +85,21 @@ export default class Gallery extends React.Component {
           <div className={styles.right}>
             <div className={styles.statistics} onClick={this.handleClap}>
               <span>👏</span>
-              <span className={isAddingClap ? styles.animateAddUp : null}>{claps}</span>
+              <span
+                className={isAddingClap ? styles.animateAddUp : null}
+                onAnimationStart={e => e.stopPropagation()}
+              >
+                {claps}
+              </span>
             </div>
             <div className={styles.statistics} onClick={this.handleFavs}>
               <span>❤️</span>
-              <span className={isAddingFav ? styles.animateAddUp : null}>{favs}</span>
+              <span
+                className={isAddingFav ? styles.animateAddUp : null}
+                onAnimationStart={e => e.stopPropagation()}
+              >
+                {favs}
+              </span>
             </div>
           </div>
         </div>
