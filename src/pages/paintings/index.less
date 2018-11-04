@@ -1,0 +1,34 @@
+@import '../theme.less';
+.container {
+  width: 100%;
+  height: 100%;
+  padding: 60px 0px;
+  overflow-y: scroll;
+  .title {
+    margin-top: 0px;
+    margin-bottom: 32px;
+    width: 100%;
+    height: 72px;
+    background-color: #efefef;
+    padding: 0px 80px;
+    text-align: right;
+    font-size: 32px;
+    font-family: 'AbrilFatface';
+    line-height: 72px;
+    letter-spacing: 4px;
+  }
+  .imgContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    .left {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    .right {
+      width: 50%;
+    }
+  }
+}

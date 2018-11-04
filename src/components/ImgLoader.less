@@ -1,12 +1,15 @@
 @import '../pages/theme.less';
-
 .grid {
-  width: 100%;
-  height: 100%;
-  transition: all .3s;
+  width: 500px;
+  transition: all 0.3s;
   position: relative;
   text-align: center;
-
+  margin-right: 32px;
+  margin-bottom: 32px;
+  &:hover {
+    cursor: pointer; // box-shadow: @light-box-shadow;
+    // border-color: @common-border-color;
+  }
   .gridImg {
     width: 100%;
     height: 100%;
@@ -14,24 +17,70 @@
     will-change: transform;
     position: relative;
   }
-
-  .expandedImg {
-    height: 100%;
-    will-change: transform;
-  }
-
   .mask {
     width: 100%;
     height: 100%;
     position: absolute;
     z-index: 2;
   }
+  .noteBackground {
+    position: absolute;
+    width: 500px;
+    height: 60px;
+    padding: 23px 0 10px;
+    bottom: 0px;
+    background-color: rgba(255, 255, 255, 0.7);
+    transform: translateY(100%);
+    overflow: hidden;
+    transition: transform 0.4s ease-in-out;
+    box-sizing: border-box;
+  }
+  .note {
+    position: absolute;
+    bottom: 0;
+    height: 55px;
+    width: 100%;
+    transform: translateY(-200%);
+    transition: transform 0.4s ease-in-out; // padding: 8px 24px 0 24px;
+    padding: 0 16px 4px 16px;
+    > div {
+      display: flex;
+      height: 100%;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      > svg {
+        width: 30px;
+        height: 30px;
+      }
+      text-align: left;
+      font-family: 'AbrilFatface';
+      font-size: 20px;
+    } // >div:last-child {
+    //   text-align: left;
+    //   font-family: 'Prata';
+    //   font-size: 16px;
+    // }
+  }
 }
 
-.gridWithHover {
-  &:hover {
-    cursor: pointer;
-    box-shadow: @dark-box-shadow;
-    border-color: @common-border-color;
-  }
+.grid:hover .noteBackground {
+  transform: translateY(0);
+}
+
+.grid:hover .note {
+  transform: translateY(0);
+}
+
+.large {
+  width: 800px;
+  height: 600px;
+}
+
+.medium {
+  height: 600px;
+}
+
+.small {
+  height: 300px;
 }

@@ -1,0 +1,32 @@
+@import '../theme.less';
+.container {
+  height: 100%;
+  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-auto-rows: 400px;
+  grid-gap: 40px;
+  padding: 40px;
+  .imgContainer {
+    width: 100%;
+    height: 100%;
+  }
+  .imgExpandContainer {
+    position: fixed;
+    padding: 50px;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 10;
+    .blur {
+      transition: all 1s;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

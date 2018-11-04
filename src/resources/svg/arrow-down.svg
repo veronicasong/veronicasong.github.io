@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="14px" height="7px" viewBox="0 0 14 7" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Index-1" transform="translate(-32.000000, -414.000000)" fill="#000000" fill-rule="nonzero">
+            <g id="eglass-arrow-down" transform="translate(31.000000, 409.000000)">
+                <rect id="Rectangle-path" opacity="0" x="0" y="0" width="16" height="16"></rect>
+                <path d="M14.8254523,5.65176809 C15.0502919,5.93998869 15.0691591,6.30127972 14.8675518,6.458693 L8.29199403,11.5877915 C8.24652086,11.6234313 8.10039594,11.7111798 8.07554878,11.7387611 C7.83056287,12.0095695 7.47830572,12.0908584 7.28830653,11.9193907 L1.09551323,6.33498487 C0.905514047,6.16335723 0.949388312,5.80433666 1.1943902,5.53290469 C1.43939209,5.26161662 1.79163327,5.18063153 1.98227202,5.35209928 L7.61832277,10.4342696 L14.053048,5.41482475 C14.2552949,5.25741147 14.6011085,5.36370741 14.8254523,5.65176809 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

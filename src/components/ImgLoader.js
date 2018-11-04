@@ -1,10 +1,33 @@
 import React from 'react'
-import { Flipper, Flipped } from 'react-flip-toolkit'
+import propTypes from 'prop-types'
+import classnames from 'classnames'
+import { withRouter } from 'react-router'
 import styles from './ImgLoader.less'
+import { ReactComponent as TitleIcon } from 'resources/svg/lifestyle-title.svg'
 
+@withRouter
 export default class ImgLoader extends React.Component {
+  static propTypes = {
+    image: propTypes.object.isRequired,
+    size: propTypes.string.isRequired,
+    hasNote: propTypes.bool,
+    noClick: propTypes.bool,
+    revealRef: propTypes.any,
+  }
+
+  static defaultProps = {
+    image: {
+      url: '',
+      color: '',
+    },
+    size: 'large',
+    hasNote: true,
+    noClick: false,
+    revealRef: undefined,
+  }
+
   state = {
-    loaded: false
+    loaded: false,
   }
 
   handleOnLoad = () => {
@@ -12,32 +35,35 @@ export default class ImgLoader extends React.Component {
     this.props.setLoaded && this.props.setLoaded()
   }
 
-  onStart = el => {
-    el.style.zIndex = 10
-  }
-
-  onComplete = el => {
-    el.style.zIndex = ""
-    this.props.onComplete && this.props.onComplete()
+  handleJumpToDetail = () => {
+    !this.props.noClick &&
+      this.props.history.push(
+        'detail?category=' + this.props.image.category + '&_id=' + this.props.image._id
+      )
   }
 
   render = () => {
     const { loaded } = this.state
-    const { image, revealRef, index, expanded } = this.props
+    const { noClick, hasNote, image, size, revealRef } = this.props
     return (
-      <div className={expanded ? styles.grid : `${styles.grid} ${styles.gridWithHover}`} ref={revealRef}>
-        {
-          loaded ? null : <div className={styles.mask} style={{ backgroundColor: image.color }}></div>
-        }
-
-        <Flipped
-          flipId={`img-${index}`}
-          onStart={this.onStart}
-          onComplete={this.onComplete}
-        >
-          <img className={expanded ? styles.expandedImg : styles.gridImg} src={image.url} onLoad={this.handleOnLoad} />
-        </Flipped>
-
+      <div
+        className={classnames(styles.grid, styles[size])}
+        ref={revealRef}
+        onClick={this.handleJumpToDetail}
+        style={noClick ? { cursor: 'default' } : { cursor: 'pointer' }}
+      >
+        {loaded ? null : <div className={styles.mask} style={{ backgroundColor: image.color }} />}
+        <img className={styles.gridImg} src={image.url} onLoad={this.handleOnLoad} />
+        {hasNote ? (
+          <div className={styles.noteBackground}>
+            <div className={styles.note}>
+              <div>
+                <TitleIcon />
+                {image.title || 'By Veronica'}
+              </div>
+            </div>
+          </div>
+        ) : null}
       </div>
     )
   }

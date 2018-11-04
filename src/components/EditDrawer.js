@@ -69,6 +69,8 @@ export default class EditDrawer extends React.Component {
     }).then(res => {
       this.setState({ content: res })
     })
+    // prevent default upload action
+    return false
   }
 
   renderUpload() {
