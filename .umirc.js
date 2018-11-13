@@ -10,7 +10,6 @@ export default {
     utils: path.resolve(__dirname, 'src/utils/'),
   },
   publicPath: '/dist/',
-  // base: path.resolve(__dirname, 'dist'),
   plugins: [
     [
       'umi-plugin-react',

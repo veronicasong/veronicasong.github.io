@@ -18,7 +18,12 @@ export default class HomePage extends React.Component {
     this.performSlideUpWithThrottle = _.throttle(this.performSlideUp, 1800, { trailing: false })
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    console.log(
+      '%c50% OF ART 🎨 50% OF TECH 🖥',
+      'text-shadow: 1px 1px #7C3F31;color:#BCA598;font-size:30px;padding: 30px;'
+    )
+  }
 
   handleSlide = e => {
     e.persist()
